@@ -67,7 +67,7 @@ function App() {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    setPage(1);
+    setPage(() => 1);
     fetchImages();
   };
   return (
@@ -89,7 +89,7 @@ function App() {
       <section className="photos">
         <div className="photos-center">
           {photos.map((image, index) => {
-            return <Photo key={image.id} {...image} />;
+            return <Photo key={index} {...image} />;
           })}
         </div>
         {loading && <h2 className="loading">Loading...</h2>}
